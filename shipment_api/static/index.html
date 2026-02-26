@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Extractor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">📦</div>
+                <h1>Shipment<span> Extractor</span></h1>
+            </div>
+            <p class="subtitle">Intelligent PDF Bill of Lading Extraction</p>
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search by Container Number (e.g., MEDU9341510)..." />
+                <button id="search-btn" class="btn-primary">Search</button>
+            </div>
+        </header>
+
+        <section class="upload-section">
+            <div id="drop-zone" class="drop-zone">
+                <input type="file" id="file-input" accept="application/pdf" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📄</div>
+                    <h3>Drag & Drop your BL PDF here</h3>
+                    <p>or</p>
+                    <button class="btn-primary" id="browse-btn">Browse Files</button>
+                    <p class="file-hint">Supports single or multi-container PDFs</p>
+                </div>
+            </div>
+
+            <div id="loading-state" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Analyzing document with AI...</p>
+            </div>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <div class="results-header">
+                <h2>Extracted Shipments <span id="container-count" class="badge">0</span></h2>
+                <button class="btn-secondary" id="reset-btn">Upload Another</button>
+            </div>
+
+            <div id="cards-container" class="cards-container">
+                <!-- Cards will be dynamically injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
